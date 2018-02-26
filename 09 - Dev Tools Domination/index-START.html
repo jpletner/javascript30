@@ -18,28 +18,65 @@
     }
 
     // Regular
+    console.log('Hello');
 
     // Interpolated
+    const name = 'Jenny';
+    console.log('Hello my name is %s', name);
+    console.log(`Hello my name is ${name} take 2`);
 
     // Styled
+    console.log('%c Hello World', 'font-size: 50px; background-color: red; text-shadow:10px 10px 0 blue' );
 
     // warning!
+    console.warn('OOOOHHHH NOES!');
 
     // Error :|
+    console.error('oh crap');
 
     // Info
+    console.info('Crocs eat 3 or 4 people per year');
 
     // Testing
+    console.assert(1 === 2, 'You so wrong');
 
     // clearing
+    console.clear();
 
     // Viewing DOM Elements
+    const p = document.querySelector('p');
+    console.log(p);
+    console.dir(p);
 
     // Grouping together
+    console.clear();
+
+    dogs.forEach(dog => {
+      console.groupCollapsed(`${dog.name}`)
+      console.log(`${dog.name} is ${dog.age} years old`)
+      console.log(`${dog.name} is ${dog.age * 7 } human years old`)
+      console.groupEnd(`${dog.name}`)
+    })
 
     // counting
+    console.count('Eli');
+    console.count('Eli');
+    console.count('Eli');
+    console.count('Eli');
+    console.count('Eli');
+    console.count('Ed');
+    console.count('Eli');
+    console.count('Ed');
+    console.count('Ed');
 
     // timing
+    console.time('fetching data');
+    fetch('https://api.github.com/users/jpletner')
+      .then(data => data.json())
+      .then(data => {
+        console.timeEnd('fetching data');
+        console.log(data);
+      });
 
   </script>
 </body>
