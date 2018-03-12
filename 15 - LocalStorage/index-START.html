@@ -23,6 +23,8 @@
       <input type="text" name="item" placeholder="Item Name" required>
       <input type="submit" value="+ Add Item">
     </form>
+    <button onclick="checkAll()">Check All</button>
+    <button onclick="clearAll()">Clear All</button>
   </div>
 
 <script>
@@ -63,6 +65,17 @@
     populateList(items, itemsList);
   }
 
+  function checkAll() {
+    items.map((item => {item.done = true}))
+    localStorage.setItem('items', JSON.stringify(items))
+    populateList(items, itemsList);
+  }
+
+  function clearAll() {
+    items.map((item => {item.done = false}))
+    localStorage.setItem('items', JSON.stringify(items))
+    populateList(items, itemsList);
+  }
 
   addItems.addEventListener('submit', addItem);
   itemsList.addEventListener('click', toggleDone)
